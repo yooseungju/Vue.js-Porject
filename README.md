@@ -28,5 +28,5 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-jara 연동 테스트
+jara 연동 테스트 2
 
