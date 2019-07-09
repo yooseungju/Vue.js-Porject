@@ -6,6 +6,8 @@
        title="Weather"
        :latitude="lat"
        :longitude="lon"
+       bar-color="#ffffff"
+       text-color="#ffffff"
        language="en"
        units="uk">
    </weather>
@@ -41,7 +43,7 @@ export default {
    left: 0;
    bottom: 0;
    width: 100%;
-   background-color: white;
+   background-color: black;
    color: white;
    text-align: center;
 }
