@@ -1,26 +1,42 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
+import { async } from 'q';
 
 
-// Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyAOaxPMUrFVZmtPhk945-pku0Vr1_9TkGs",
     authDomain: "webmobile-5.firebaseapp.com",
     databaseURL: "https://webmobile-5.firebaseio.com",
     projectId: "webmobile-5",
-    storageBucket: "",
+    storageBucket: "webmobile-5.appspot.com",
     messagingSenderId: "934123234328",
     appId: "1:934123234328:web:0932bbb6042d5da3"
   };
-  // Initialize Firebase
+
 
 
 firebase.initializeApp(firebaseConfig);
   
 const firestore = firebase.firestore()
 
+
 export default {
+	uploadImg(item, imageName, imageFile, title, content){
+		
+		let storageRef = firebase.storage().ref()
+		let mountainsRef = storageRef.child(`Post/${item}/${imageName}`)
+	
+		mountainsRef.put(imageFile)
+				.then(snapshot => {
+					snapshot.ref.getDownloadURL()
+					.then(downloadURL => {
+						console.log(downloadURL);
+						this.postPost(item ,title, content, downloadURL)
+						
+			});
+		});
+    },
 	getPosts(item) {
 		let postsCollection
 		if(item == "AI"){
@@ -46,8 +62,9 @@ export default {
 					})
 				})
 	},
-	postPost(item ,title, content) {
+	postPost(item ,title, content,img) {
 		return firestore.collection(item).add({
+			img,
 			title,
 			content,
 			created_at: firebase.firestore.FieldValue.serverTimestamp()
