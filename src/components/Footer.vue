@@ -7,7 +7,7 @@
        :latitude="lat"
        :longitude="lon"
        bar-color="#ffffff"
-       text-color="#ffffff"
+       text-color="#ffffff"  
        language="en"
        units="uk">
    </weather>
