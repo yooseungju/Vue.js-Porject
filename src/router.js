@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import TestView from './views/TestView.vue'
-import HelloView from './views/HelloView.vue'
+import PostPage from './views/PostPage.vue'
+import NewPostPage from './views/NewPostPage.vue'
 
 
 Vue.use(VueRouter);
@@ -11,14 +11,15 @@ export const router = new VueRouter({
   mode:'history',
   routes: [
     {
-      path: '/',
-      name: 'HelloView',
-      component: HelloView,
+      path: '/post/:item/',
+      name: 'post',
+      component: PostPage,
     },
+
     {
-      path: '/test',
-      name: 'TestView',
-      component: TestView,
+      path: '/post/:item/new/',
+      name: 'newpost',
+      component: NewPostPage,
     },
   ]
 })

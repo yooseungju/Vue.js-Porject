@@ -16,5 +16,25 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    
+    <script src="https://kit.fontawesome.com/e5ee5dc746.js"></script>
+
+    <script>
+      var userAgent = window.navigator.userAgent;
+      var isChrome = userAgent.indexOf('Chrome');
+      var isChromeMobile = userAgent.indexOf('CriOS');
+      var isSamsungBrowser = userAgent.indexOf('SamsungBrowser');
+      var isEdge = userAgent.indexOf('Edge');
+
+      console.log(isChrome)
+      if(isChrome > -1 || isChromeMobile > -1){
+        if(isSamsungBrowser < 0 && isEdge < 0){
+        } else{
+          alert("해당 사이트는 크롬에 최적화 되어 있습니다.")
+        }
+        }else{
+        alert("해당 사이트는 크롬에 최적화 되어 있습니다.")
+        }  
+    </script>
   </body>
 </html>
