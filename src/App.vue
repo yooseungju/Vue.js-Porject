@@ -11,22 +11,13 @@ import FirebaseService from '@/services/FirebaseService'
 
 export default {
   name: 'App',
-  el:'#app',
+ 
   components: {   
   },
   data () {
     return {
-      posts: [],
       //
     }
   },
-  mounted() {
-		this.getPosts('AI')
-	},
-	methods: {
-		async getPosts(item) {
-			this.posts = await FirebaseService.getPosts(item)
-    },
-  }
 }
 </script>

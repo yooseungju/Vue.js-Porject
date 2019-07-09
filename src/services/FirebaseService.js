@@ -46,13 +46,15 @@ export default {
 					})
 				})
 	},
-	// postPost(title, body) {
-	// 	return firestore.collection(POSTS).add({
-	// 		title,
-	// 		body,
-	// 		created_at: firebase.firestore.FieldValue.serverTimestamp()
-	// 	})
-	// },
+	postPost(item ,title, content) {
+		return firestore.collection(item).add({
+			title,
+			content,
+			created_at: firebase.firestore.FieldValue.serverTimestamp()
+		})
+	},
+
+
 	// getPortfolios() {
 	// 	const postsCollection = firestore.collection(PORTFOLIOS)
 	// 	return postsCollection
