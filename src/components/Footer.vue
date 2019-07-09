@@ -1,88 +1,38 @@
 <template>
 
     <div class="footer">
-      <div>
-      <button type="button" @click="searchWeatherDaejeon">대전 날씨 보기</button>
-      <button type="button" @click="searchWeatherSeoul">서울 날씨 보기</button>
-      <button type="button" @click="searchWeatherLondon">런던 날씨 보기</button>
-    </div>
-<div v-if='viewDaejeon === true' style="border: 1px solid gold; float: left; width: 33%;">
-  <h2>국가명 : {{ countryDaejeon }}</h2>
-  <p>도시명 : {{ cityDaejeon }}</p>
-  <p>현재 온도 : {{temperDaejeon}}</p>
-</div>
-<div v-if='viewSeoul === true' style="border: 1px solid gold; float: left; width: 33%;">
-<h2>국가명 : {{ countrySeoul }}</h2>
-<p>도시명 : {{ citySeoul }}</p>
-<p>현재 온도 : {{temperSeoul}}</p>
-</div>
-<div v-if='viewLondon === true' style="border: 1px solid gold; float: left; width: 33%;">
-<h2>국가명 : {{ countryLondon }}</h2>
-<p>도시명 : {{ cityLondon }}</p>
-<p>현재 온도 : {{temperLondon}}</p>
-</div>
-
+      <weather
+       api-key="bfbf1028ce23c6b4053b773996f5b7df"
+       title="Weather"
+       :latitude="lat"
+       :longitude="lon"
+       language="en"
+       units="uk">
+   </weather>
     </div>
 
 
 </template>
 <script>
-import { posix } from 'path';
-
+import VueWeatherWidget from 'vue-weather-widget';
+import 'vue-weather-widget/dist/css/vue-weather-widget.css';
 export default {
-  name: 'Footer',
-  components: {
-  },
-  data () {
-    return {
-      viewDaejeon : false,
-      viewSeoul : false,
-      viewLondon : false,
-      country: '',
-      city: ''
-      //
+  data(){
+    return{
+      lat: '',
+      lon: ''
     }
   },
-  computed: {
-      hasResult: function() {
-        return this.posts.length > 0
-      }
-  },
-  methods: {
-    searchWeatherDaejeon() {
-      const BASE_URL = 'http://api.openweathermap.org/data/2.5/weather?q=Daejeon&units=metric&appid=7298697712e3485d77bb9b2bfd4a2f12'
-      this.$http.get(`${BASE_URL}`)
-      .then((result) => {
-        this.countryDaejeon = result.data.sys.country
-        this.cityDaejeon = result.data.name
-        this.temperDaejeon = result.data.main.temp
-        this.viewDaejeon = true
-        console.log(result)
-      })
-    },
-    searchWeatherSeoul() {
-      const BASE_URL = 'http://api.openweathermap.org/data/2.5/weather?q=Seoul&units=metric&appid=7298697712e3485d77bb9b2bfd4a2f12'
-      this.$http.get(`${BASE_URL}`)
-      .then((result) => {
-        this.countrySeoul = result.data.sys.country
-        this.citySeoul = result.data.name
-        this.temperSeoul=result.data.main.temp
-        this.viewSeoul = true
-        console.log(result)
-      })
-    },
-    searchWeatherLondon() {
-      const BASE_URL = 'http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=7298697712e3485d77bb9b2bfd4a2f12'
-      this.$http.get(`${BASE_URL}`)
-      .then((result) => {
-        this.countryLondon = result.data.sys.country
-        this.cityLondon = result.data.name
-        this.temperLondon=result.data.main.temp
-        this.viewLondon = true
-        console.log(result)
-      })
-    }
-  }
+   components: {
+       'weather': VueWeatherWidget
+   },
+   mounted(){
+     var vm = this
+     navigator.geolocation.getCurrentPosition(function(pos){
+       vm.lat = pos.coords.latitude.toString();
+       vm.lon = pos.coords.longitude.toString();
+     })
+   }
 }
 </script>
 
@@ -91,7 +41,7 @@ export default {
    left: 0;
    bottom: 0;
    width: 100%;
-   background-color: black;
+   background-color: white;
    color: white;
    text-align: center;
 }
