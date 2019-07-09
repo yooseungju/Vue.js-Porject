@@ -1,6 +1,6 @@
 # webmobile-sub2
 
-## Project setup
+## Project setup.
 ```
 npm install
 ```
@@ -12,7 +12,7 @@ npm run serve
 
 ### Compiles and minifies for production
 ```
-npm run build
+npm run buildd
 ```
 
 ### Run your tests
@@ -27,3 +27,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+jara 연동 테스트 2
+
