@@ -1,6 +1,6 @@
 # webmobile-sub2
 
-## Project setup
+## Project setup.
 ```
 npm install
 ```
