@@ -5,7 +5,9 @@ import { router } from './router.js'
 import VueSimplemde from 'vue-simplemde'
 import 'simplemde/dist/simplemde.min.css'
 
+import axios from 'axios'
 
+Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 Vue.use(VueSimplemde)
