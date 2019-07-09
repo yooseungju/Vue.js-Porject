@@ -67,8 +67,8 @@ export default {
 
     methods: {
         postPost() {
-        FirebaseService.postPost(this.item, this.title, this.content, this.img)
-        alert("성공했어")
+            FirebaseService.uploadImg(this.item, this.imageName, this.imageFile, this.title, this.content)
+            alert("성공했어")
             },
         
 

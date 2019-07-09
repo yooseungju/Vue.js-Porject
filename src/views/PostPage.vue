@@ -5,7 +5,7 @@
 
     <!-- Post list -->
     <v-container>
-        <v-btn  :to="`${item}/new`" color="primary" dark ><v-icon dark left small>fas fa-edit</v-icon>New</v-btn>
+        <v-btn  :to="`new/`" color="primary" dark ><v-icon dark left small>fas fa-edit</v-icon>New</v-btn>
 
         <v-layout>
         <v-flex xs12>

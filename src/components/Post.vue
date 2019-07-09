@@ -1,6 +1,7 @@
 <template>
   <v-layout py-4 h-100>
     <v-flex row>
+      <v-img :src="imgSrc" height="200px"></v-img>
       <div class="caption ">{{formatedDate}}</div>
       <h2 class="color-333 headline font-weight-light cutoneline">{{title}}</h2>
       <p class="mb-1 color-666 font-weight-light subheading cutfourline">{{content}}</p>
@@ -14,7 +15,8 @@ export default {
 	props: {
 		date: {type: Date},
 		title: {type: String},
-		content: {type: String}
+    content: {type: String},
+    imgSrc: {type: String},
 	},
   computed: {
 		formatedDate() {
