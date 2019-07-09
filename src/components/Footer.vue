@@ -50,37 +50,34 @@ export default {
   },
   methods: {
     searchWeatherDaejeon() {
-      const BASE_URL = 'http://api.openweathermap.org/data/2.5/weather?q=Daejeon&appid=7298697712e3485d77bb9b2bfd4a2f12'
+      const BASE_URL = 'http://api.openweathermap.org/data/2.5/weather?q=Daejeon&units=metric&appid=7298697712e3485d77bb9b2bfd4a2f12'
       this.$http.get(`${BASE_URL}`)
       .then((result) => {
         this.countryDaejeon = result.data.sys.country
         this.cityDaejeon = result.data.name
-        this.temperDaejeon = result.data.main.temp - 273
-        this.temperDaejeon = this.temperDaejeon.toFixed(2)
+        this.temperDaejeon = result.data.main.temp
         this.viewDaejeon = true
         console.log(result)
       })
     },
     searchWeatherSeoul() {
-      const BASE_URL = 'http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=7298697712e3485d77bb9b2bfd4a2f12'
+      const BASE_URL = 'http://api.openweathermap.org/data/2.5/weather?q=Seoul&units=metric&appid=7298697712e3485d77bb9b2bfd4a2f12'
       this.$http.get(`${BASE_URL}`)
       .then((result) => {
         this.countrySeoul = result.data.sys.country
         this.citySeoul = result.data.name
-        this.temperSeoul=result.data.main.temp - 273
-        this.temperSeoul = this.temperSeoul.toFixed(2)
+        this.temperSeoul=result.data.main.temp
         this.viewSeoul = true
         console.log(result)
       })
     },
     searchWeatherLondon() {
-      const BASE_URL = 'http://api.openweathermap.org/data/2.5/weather?q=London&appid=7298697712e3485d77bb9b2bfd4a2f12'
+      const BASE_URL = 'http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=7298697712e3485d77bb9b2bfd4a2f12'
       this.$http.get(`${BASE_URL}`)
       .then((result) => {
         this.countryLondon = result.data.sys.country
         this.cityLondon = result.data.name
-        this.temperLondon=result.data.main.temp - 273
-        this.temperLondon = this.temperLondon.toFixed(2)
+        this.temperLondon=result.data.main.temp
         this.viewLondon = true
         console.log(result)
       })
