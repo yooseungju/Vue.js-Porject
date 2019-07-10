@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <button @click="getGraph" style="width:100px height:100px;">zzz</button> -->
-    <canvas class="hidden-xs-only" ref="mixChart" id="mixChart" width="400" height="300"></canvas>
+    <canvas class="hidden-xs-only" ref="mixChart" id="mixChart" width="1000" height="1000"></canvas>
   </div>
 </template>
 
