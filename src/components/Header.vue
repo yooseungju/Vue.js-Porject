@@ -1,7 +1,7 @@
 <template>
   <div class="header">
-    <div class="center">
-    <h1>헤더입니다.</h1>
+    <div style="margin-left:2%;">
+      <h2 style="font-family: 'Gugi', cursive;">SSAFY 원투쓰리!</h2>
     </div>
 
 
@@ -18,3 +18,7 @@ export default ({
 })
 
 </script>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans|Gugi&display=swap');
+</style>
