@@ -10,25 +10,8 @@
       required
     ></v-text-field>
    
+    <ImageUploader v-on:gotimg="changeImgFile"></ImageUploader>
     
-    <img :src="imageUrl" height="150" v-if="imageUrl" id="image" />
-
-    <v-text-field
-        label="Select Image"
-         @click="pickFile"
-        v-model="imageName"
-        prepend-icon="attach_file"
-    ></v-text-field>
-
-    <input
-        id = "file"
-        type="file"
-        style="display: none"
-        ref="image"
-        accept="image/*"
-        @change="onFilePicked"
-    />
-
 
     <markdown-editor v-model="content" ref="markdownEditor"></markdown-editor>
     <v-btn @click="upload" color="pink darken-2" dark><v-icon dark left>fas fa-edit</v-icon>Post</v-btn>
@@ -40,42 +23,44 @@
 <script>
 
 import FirebaseService from '@/services/FirebaseService'
+import ImageUploader from '../components/ImageUploader'
 
 export default {
 	name: 'NewPost',
-	
+	components:{
+        ImageUploader
+    },
 	data() {
 		return {
             title: "",
             content: "",
             item: "",
             img: "",
-            imageUrl: "",
-            imageName: "",
             imageFile: "",
          
 		}
     },
+
     created(){
         this.item = this.$route.params.item;
     },
 
     methods: {
+        changeImgFile(value){
+            this.imageFile = value;
+            alert(this.imageFile)
+        },
         postPost() {
             FirebaseService.postPost(this.item, this.title, this.content, this.img)
             },
 
         upload(){
             var xmlHttpRequest = new XMLHttpRequest();
-            console.log(1)
             xmlHttpRequest.open('POST', 'https://api.imgur.com/3/image/', true)
-            console.log(2)
 
             xmlHttpRequest.setRequestHeader("Authorization", "Client-ID 38e11911aeaa6ab")
-            console.log(3)
 
             xmlHttpRequest.onreadystatechange = () => {
-            console.log(4)
                 if (xmlHttpRequest.readyState == 4) {
                     if (xmlHttpRequest.status == 200) {
                         var result = JSON.parse(xmlHttpRequest.responseText)
@@ -89,34 +74,8 @@ export default {
                     }
                 }
             }
-            console.log(5)
             xmlHttpRequest.send(this.imageFile)
-   
-
         }, 
-
-        pickFile(){
-            this.$refs.image.click()
-        },
-
-        onFilePicked(e) {
-            const files = e.target.files
-            if (files[0] !== undefined) {
-                this.imageName = files[0].name
-                
-                if (this.imageName.lastIndexOf(".") <= 0) {
-                    return;
-                }
-                const fr = new FileReader()
-                fr.readAsDataURL(files[0])
-                fr.addEventListener("load", () => {
-                this.imageUrl = fr.result
-                this.imageFile = files[0]
-                })
-            } 
-        }
-
-
     },
 
 }
