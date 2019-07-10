@@ -85,10 +85,10 @@ export default {
 					})
 				})
 	},
-	postPortfolio(title, body, img) {
+	postPortfolio(title, content, img) {
 		return firestore.collection("Portfolios").add({
 			title,
-			body,
+			content,
 			img,
 			created_at: firebase.firestore.FieldValue.serverTimestamp()
 		})
