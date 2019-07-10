@@ -1,8 +1,7 @@
 <template>
 
     <div class="login">
-
-      <v-flex xs12 sm6 md3>
+      <!-- <v-flex xs12 sm6 md3>
       <v-text-field
         label="email"
         type="email"
@@ -19,68 +18,137 @@
 
     </v-flex>
     <v-btn color="info" v-on:click="singIn">Sign In</v-btn>
-    <v-btn color="info" v-on:click="singIn_Facebook">Facebook</v-btn>
+    <v-btn color="info" v-on:click="singIn_Facebook">Facebook</v-btn> -->
 
-      <div class="text-xs-center">
-    <v-dialog
-      v-model="dialog"
-      width="500"
-    >
-      <template v-slot:activator="{ on }">
-        <v-btn
-          color="red lighten-2"
-          dark
-          v-on="on"
-        >
-          Sign Up
-        </v-btn>
-      </template>
 
-      <v-card>
-        <v-card-title
-          class="headline grey lighten-2"
-          primary-title
-        >
-          Sign Up
-        </v-card-title>
 
-        <v-card-text>
+    <div style='display:inline;float:right;min-width:1200px;'>
+      <!-- signUp -->
+        <div class="text-xs-right" style='display:inline;float:right;'>
+      <v-dialog
+        v-model="dialog_singup"
+        width="500"
+      >
+        <template v-slot:activator="{ on }">
+          <v-btn
+            color="red lighten-2"
+            dark
+            v-on="on"
+          >
+            Sign Up
+          </v-btn>
+        </template>
+
+        <v-card>
+          <v-card-title
+            class="headline grey lighten-2"
+            primary-title
+          >
+            Sign Up
+          </v-card-title>
+
+          <v-card-text>
+            <v-flex xs12 sm6 md3>
+            <v-text-field
+              label="email"
+              type="email"
+              v-model="singup_email"
+
+            ></v-text-field>
+          </v-flex>
+
+
           <v-flex xs12 sm6 md3>
+            <v-text-field
+            v-model="singup_password"
+              label="password"
+              type="password"
+            ></v-text-field>
+          </v-flex>
+          <v-btn color="info" v-on:click="signUp">Sign Up</v-btn>
+          </v-card-text>
+
+          <v-divider></v-divider>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+              color="primary"
+              flat
+              @click="dialog_singup = false"
+            >
+              close
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </div>
+  <!-- signin     -->
+    <div class="text-xs-right" style='display:inline;float:right;'>
+    <v-dialog
+    v-model="dialog_singin"
+    width="500"
+    >
+    <template v-slot:activator="{ on }">
+      <v-btn
+        color="red lighten-2"
+        dark
+        v-on="on"
+      >
+        Sign In
+      </v-btn>
+    </template>
+
+    <v-card>
+      <v-card-title
+        class="headline grey lighten-2"
+        primary-title
+      >
+        Sign In
+      </v-card-title>
+
+      <v-card-text>
+        <v-flex xs12 sm6 md3>
           <v-text-field
             label="email"
             type="email"
-            v-model="singup_email"
+            v-model="singin_email"
 
           ></v-text-field>
-        </v-flex>
+      </v-flex>
 
 
-        <v-flex xs12 sm6 md3>
-          <v-text-field
-          v-model="singup_password"
-            label="password"
-            type="password"
-          ></v-text-field>
-        </v-flex>
-          <button v-on:click="signUp">Sign Up</button>
-        </v-card-text>
+      <v-flex xs12 sm6 md3>
+        <v-text-field
+          label="password"
+          type="password"
+          v-model="singin_password"
 
-        <v-divider></v-divider>
+        ></v-text-field>
+      </v-flex>
+      <v-btn color="info" v-on:click="singIn">Sign In</v-btn>
+      <v-btn color="info" v-on:click="singIn_Facebook">Facebook</v-btn>
+      </v-card-text>
 
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-            color="primary"
-            flat
-            @click="dialog = false"
-          >
-            close
-          </v-btn>
-        </v-card-actions>
-      </v-card>
+      <v-divider></v-divider>
+
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn
+          color="primary"
+          flat
+          @click="dialog_singin = false"
+        >
+          close
+        </v-btn>
+
+
+      </v-card-actions>
+    </v-card>
     </v-dialog>
-  </div>
+    </div>
 
+    </div>
     </div>
 
 
@@ -98,7 +166,8 @@ export default ({
       singup_password : '',
       singin_email : '',
       singin_password : '',
-      dialog: false
+      dialog_singin: false,
+      dialog_singup: false,
     }
   },
   methods: {
