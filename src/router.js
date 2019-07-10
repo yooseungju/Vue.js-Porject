@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import PostPage from './views/PostPage.vue'
 import NewPostPage from './views/NewPostPage.vue'
 import Main from './views/Main.vue'
+import UserProfile from './views/UserProfile.vue'
 
 
 
@@ -22,11 +23,15 @@ export const router = new VueRouter({
       name: 'post',
       component: PostPage,
     },
-
     {
       path: '/post/:item/new/',
       name: 'newpost',
       component: NewPostPage,
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: UserProfile,
     },
   ]
 })
