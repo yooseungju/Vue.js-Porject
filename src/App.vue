@@ -10,7 +10,7 @@
   </v-app>
 </template>
 
-<script>
+<script>  
 import FirebaseService from '@/services/FirebaseService'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
