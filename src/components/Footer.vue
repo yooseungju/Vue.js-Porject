@@ -6,6 +6,7 @@
        title="Weather"
        :latitude="lat"
        :longitude="lon"
+       hide-header=true
        bar-color="#ffffff"
        text-color="#ffffff"
        language="en"
