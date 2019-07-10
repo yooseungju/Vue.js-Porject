@@ -8,7 +8,7 @@
     <Footer>
     </Footer>
   </v-app>
-</template>
+</template>  
 
 <script>
 import FirebaseService from '@/services/FirebaseService'
