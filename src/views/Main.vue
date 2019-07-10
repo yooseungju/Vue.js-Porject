@@ -1,9 +1,5 @@
 <template>
   <div>
-
-
-    <Login>
-    </Login>
     Main 페이지입니다!
     <div class="chart">
       <mix-chart></mix-chart>
