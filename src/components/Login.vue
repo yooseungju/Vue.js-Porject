@@ -171,9 +171,9 @@ export default ({
     }
   },
   methods: {
-		 login() {
+       login() {
         alert('Sign Up')
-		},
+      },
     signUp(){
       firebase.auth().createUserWithEmailAndPassword(this.singup_email, this.singup_password)
         .then(() => alert('회원가입 성공.'))
@@ -194,7 +194,7 @@ export default ({
         alert('페이스북 로긴 성공')
       }).catch(err => console.log(err.message))
     },
-	}
+   }
 })
 
 </script>

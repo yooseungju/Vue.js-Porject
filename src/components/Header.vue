@@ -23,8 +23,13 @@ export default ({
     }
   },
   components: {
+<<<<<<< HEAD
 		Login
 	},
+=======
+      Login
+   },
+>>>>>>> 2cf9d7e195bef048fd15b905c7a1c30f9887469b
 })
 
 </script>
