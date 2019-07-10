@@ -12,7 +12,7 @@
        language="en"
        units="uk">
    </weather>
-   <div>
+   <div style="font-family: 'Do Hyeon', sans-serif;">
      <p style="float: right; margin-right:2%">2019.07.08 ~</p>
      <a href="https://lab.ssafy.com/seungju/webmobile-sub2" style="color:white; float: right; margin-right:2%">made by team "OneTwoThree"</a>
    </div>
@@ -44,6 +44,7 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap');
 .footer {
    left: 0;
    bottom: 0;
