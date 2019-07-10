@@ -73,7 +73,8 @@ export default {
         const ce = moment(item.committed_date).format("YYYY-MM-DD");
         curDate.push(ce);
       })
-
+      console.log(curDate)
+      curDate.sort();
       this.data = getDateItem(listDate, curDate);
       this.maxheight = Math.max(...this.data);
     },
@@ -120,7 +121,7 @@ export default {
   },
   created() {
     axios
-      .get("https://lab.ssafy.com/api/v4/projects/6076/repository/commits?private_token=MXg2sbAb2e_B2UuKVGcW&all=true")
+      .get("https://lab.ssafy.com/api/v4/projects/6076/repository/commits?private_token=MXg2sbAb2e_B2UuKVGcW&all=true&per_page=1000")
       .then(response => {
         this.setdate(response.data);
         this.getGraph();

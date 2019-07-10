@@ -69,23 +69,22 @@ export default {
         upload(){
             var xmlHttpRequest = new XMLHttpRequest();
             xmlHttpRequest.open('POST', 'https://api.imgur.com/3/image/', true)
-            xmlHttpRequest.setRequestHeader("Authorization", "Client-ID be7ccb835f18115")
-
+            xmlHttpRequest.setRequestHeader("Authorization", "Client-ID 38e11911aeaa6ab")      
             xmlHttpRequest.send(this.imageFile);
-
-            xmlHttpRequest.onreadystatechange = function () {
+            
+            xmlHttpRequest.onreadystatechange = () => {
                 if (xmlHttpRequest.readyState == 4) {
                     if (xmlHttpRequest.status == 200) {
+
                         var result = JSON.parse(xmlHttpRequest.responseText);
                         this.img = result.data.link;  
-                        
+                        this.postPost();
                     }
                     else {
                         alert("업로드 실패");
                     }
                 }
             };
-            this.postPost()
         }, 
 
         pickFile(){
