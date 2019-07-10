@@ -12,7 +12,7 @@
 <script>
 export default ({
   data() {
-    return {
+      return {
     }
   }
 })
@@ -21,4 +21,5 @@ export default ({
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Black+Han+Sans|Gugi&display=swap');
+
 </style>

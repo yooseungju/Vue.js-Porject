@@ -10,15 +10,18 @@
       required
     ></v-text-field>
    
-    <img :src="imageUrl" height="150" v-if="imageUrl" />
-        <v-text-field
-            label="Select Image"
-            @click="pickFile"
-            v-model="imageName"
-            prepend-icon="attach_file"
-        ></v-text-field>
+    
+    <img :src="imageUrl" height="150" v-if="imageUrl" id="image" />
+
+    <v-text-field
+        label="Select Image"
+         @click="pickFile"
+        v-model="imageName"
+        prepend-icon="attach_file"
+    ></v-text-field>
 
     <input
+        id = "file"
         type="file"
         style="display: none"
         ref="image"
@@ -26,14 +29,10 @@
         @change="onFilePicked"
     />
 
-    <v-btn color="primary" @click="upload">Upload</v-btn>
-    <h3>{{imageFile}}</h3>
-    <h3>{{imageUrl}}</h3>
 
     <markdown-editor v-model="content" ref="markdownEditor"></markdown-editor>
-
-    <v-btn @click="postPost()" color="pink darken-2" dark><v-icon dark left>fas fa-edit</v-icon>Post</v-btn>
-    {{uploading}}
+    <v-btn @click="upload" color="pink darken-2" dark><v-icon dark left>fas fa-edit</v-icon>Post</v-btn>
+ 
   </v-form>
 </v-container>
 </template>
@@ -47,16 +46,12 @@ export default {
 	
 	data() {
 		return {
-		    title: "",
-		    content: "",
+            title: "",
+            content: "",
+            item: "",
             img: "",
-            item:"",
-
-            photo: null,
-            photo_url: null,
-            dialog: false,
-            imageName: "",
             imageUrl: "",
+            imageName: "",
             imageFile: "",
          
 		}
@@ -67,10 +62,31 @@ export default {
 
     methods: {
         postPost() {
-            FirebaseService.uploadImg(this.item, this.imageName, this.imageFile, this.title, this.content)
-            alert("성공했어")
+            FirebaseService.postPost(this.item ,this.title, this.content,this.img)
+            alert("성공")
             },
-        
+
+        upload(){
+            var xmlHttpRequest = new XMLHttpRequest();
+            xmlHttpRequest.open('POST', 'https://api.imgur.com/3/image/', true)
+            xmlHttpRequest.setRequestHeader("Authorization", "Client-ID be7ccb835f18115")
+
+            xmlHttpRequest.send(this.imageFile);
+
+            xmlHttpRequest.onreadystatechange = function () {
+                if (xmlHttpRequest.readyState == 4) {
+                    if (xmlHttpRequest.status == 200) {
+                        var result = JSON.parse(xmlHttpRequest.responseText);
+                        this.img = result.data.link;  
+                        
+                    }
+                    else {
+                        alert("업로드 실패");
+                    }
+                }
+            };
+            this.postPost()
+        }, 
 
         pickFile(){
             this.$refs.image.click();
@@ -80,6 +96,7 @@ export default {
             const files = e.target.files;
             if (files[0] !== undefined) {
                 this.imageName = files[0].name;
+                
                 if (this.imageName.lastIndexOf(".") <= 0) {
                     return;
                 }
@@ -91,6 +108,8 @@ export default {
                 });
             } 
         }
+
+
     },
 
 }

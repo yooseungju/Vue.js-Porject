@@ -1,7 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
-import { async } from 'q';
+
 
 
 var firebaseConfig = {
@@ -9,7 +9,7 @@ var firebaseConfig = {
     authDomain: "webmobile-5.firebaseapp.com",
     databaseURL: "https://webmobile-5.firebaseio.com",
     projectId: "webmobile-5",
-    storageBucket: "webmobile-5.appspot.com",
+    storageBucket: "",
     messagingSenderId: "934123234328",
     appId: "1:934123234328:web:0932bbb6042d5da3"
   };
@@ -22,21 +22,22 @@ const firestore = firebase.firestore()
 
 
 export default {
-	uploadImg(item, imageName, imageFile, title, content){
+	// uploadImg(item, imageName, imageFile, title, content){
 		
-		let storageRef = firebase.storage().ref()
-		let mountainsRef = storageRef.child(`Post/${item}/${imageName}`)
+	// 	let storageRef = firebase.storage().ref()
+	// 	let mountainsRef = storageRef.child(`Post/${item}/${imageName}`)
 	
-		mountainsRef.put(imageFile)
-				.then(snapshot => {
-					snapshot.ref.getDownloadURL()
-					.then(downloadURL => {
-						console.log(downloadURL);
-						this.postPost(item ,title, content, downloadURL)
+	// 	mountainsRef.put(imageFile)
+	// 			.then(snapshot => {
+	// 				snapshot.ref.getDownloadURL()
+	// 				.then(downloadURL => {
+	// 					console.log(downloadURL);
+	// 					this.postPost(item ,title, content, downloadURL)
 						
-			});
-		});
-    },
+	// 		});
+	// 	});
+	// },
+	
 	getPosts(item) {
 		let postsCollection
 		if(item == "AI"){
