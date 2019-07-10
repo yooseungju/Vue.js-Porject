@@ -3,7 +3,6 @@
 <div id="google_translate_element"></div>
     <div style="margin-left:2%;">
       <h2 style="font-family: 'Gugi', cursive;">SSAFY 원투쓰리!</h2>
-
       <Login>
       </Login>
 
@@ -13,7 +12,7 @@
 </div>
 
 </template>
-
+ 
 <script>
 import Login from './Login'
 
@@ -23,13 +22,8 @@ export default ({
     }
   },
   components: {
-<<<<<<< HEAD
 		Login
 	},
-=======
-      Login
-   },
->>>>>>> 2cf9d7e195bef048fd15b905c7a1c30f9887469b
 })
 
 </script>
