@@ -10,9 +10,9 @@
        bar-color="#ffffff"
        text-color="#ffffff"
        language="en"
-       units="uk">
+       units="uk" style="margin-top:30px">
    </weather>
-   <div style="font-family: 'Do Hyeon', sans-serif;">
+   <div style="font-family: 'Do Hyeon', sans-serif; margin-top:-35px;">
      <p style="float: right; margin-right:2%">2019.07.08 ~</p>
      <a href="https://lab.ssafy.com/seungju/webmobile-sub2" style="color:white; float: right; margin-right:2%">made by team "OneTwoThree"</a>
    </div>
