@@ -12,6 +12,8 @@
     "chart.js": "^2.8.0",
     "core-js": "^2.6.5",
     "firebase": "^6.2.4",
+    "firebase-admin": "^8.2.0",
+    "firebase-tools": "^7.0.2",
     "moment": "^2.24.0",
     "momentjs": "^2.0.0",
     "v-markdown-editor": "^1.0.8",
