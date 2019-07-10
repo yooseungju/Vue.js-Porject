@@ -7,10 +7,14 @@
        :latitude="lat"
        :longitude="lon"
        bar-color="#ffffff"
-       text-color="#ffffff"  
+       text-color="#ffffff"
        language="en"
        units="uk">
    </weather>
+   <div>
+     <p style="float: right; margin-right:2%">2019.07.08 ~</p>
+     <a href="www.naver.com" style="color:white; float: right; margin-right:2%">made by team "OneTwoThree"</a>
+   </div>
     </div>
 
 
