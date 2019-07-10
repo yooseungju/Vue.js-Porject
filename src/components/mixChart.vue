@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <button @click="getGraph" style="width:100px height:100px;">zzz</button> -->
-    <canvas class="hidden-xs-only" ref="mixChart" id="mixChart" width="300" height="210"></canvas>
+    <canvas class="hidden-xs-only" ref="mixChart" id="mixChart" width="400" height="300"></canvas>
   </div>
 </template>
 
@@ -10,6 +10,13 @@ import axios from "axios";
 import moment from "moment";
 
 function getDateRange(startDate, endDate, listDate) {
+  if(startDate > endDate) {
+    let temp; 
+    temp = startDate;
+    startDate = endDate;
+    endDate = temp;
+  }
+
   var dateMove = new Date(startDate);
   var strDate = startDate;
   if (startDate == endDate) {
@@ -55,7 +62,6 @@ export default {
         "YYYY-MM-DD"
       );
       const enddate = moment(date[0].committed_date).format("YYYY-MM-DD");
-
       let listDate = [];
       getDateRange(startdate, enddate, listDate);
       // console.log(listDate);
@@ -107,7 +113,6 @@ export default {
     },
   },
 
-
   computed: {
     returnlabel() {
       return this.labelData;
@@ -122,8 +127,6 @@ export default {
         })
       .catch(err => console.log(err));
   },
-  mounted (){
-  }
 };
 </script>
 

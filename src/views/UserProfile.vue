@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-container class="my-5">
+    <v-container class="mb-5">
       <v-layout row wrap>
-        <v-flex  justify-center width="150">
+        <v-flex  justify-center>
           <v-card flat class="text-xs-center ma-3">
             <v-responsive class="pt-4">
               <v-avatar size="100" class="primary lighten-2">
@@ -23,12 +23,18 @@
           </v-card>
         </v-flex>
       </v-layout>
-    </v-container>
+
+    <div>
+
+      <a href="https://lab.ssafy.com/seungju/webmobile-sub2">Repository 이동</a>
+    </div>
 
     <div class="mbx">
     <!-- <img src="../assets/images/s1.gif"> -->
     <mix-chart></mix-chart>
     </div>
+    </v-container>
+
   </div>
 </template>
 
