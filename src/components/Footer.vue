@@ -13,7 +13,7 @@
    </weather>
    <div>
      <p style="float: right; margin-right:2%">2019.07.08 ~</p>
-     <a href="www.naver.com" style="color:white; float: right; margin-right:2%">made by team "OneTwoThree"</a>
+     <a href="https://lab.ssafy.com/seungju/webmobile-sub2" style="color:white; float: right; margin-right:2%">made by team "OneTwoThree"</a>
    </div>
     </div>
 
