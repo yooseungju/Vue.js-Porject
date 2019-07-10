@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div style="margin-left:2%;">
-      <h2 style="font-family: 'Gugi', cursive;">SSAFY 원투쓰리!</h2>
+      <h2 style="font-family: 'Gugi', cursive;"><a href="/">SSAFY 원투쓰리!</a></h2>
     </div>
 
 
