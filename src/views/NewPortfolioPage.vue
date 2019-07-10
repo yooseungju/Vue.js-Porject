@@ -1,6 +1,6 @@
 <template>
 <v-container>
-  <h2 class="headline my-5 text-xs-center">New Post</h2>
+  <h2 class="headline my-5 text-xs-center">New Portfolio</h2>
 
   <v-form>
   <v-text-field
@@ -48,7 +48,6 @@ export default {
 		return {
             title: "",
             content: "",
-            item: "",
             img: "",
             imageUrl: "",
             imageName: "",
@@ -56,43 +55,31 @@ export default {
          
 		}
     },
-    created(){
-        this.item = this.$route.params.item;
-    },
+    
 
     methods: {
-        postPost() {
-            FirebaseService.postPost(this.item, this.title, this.content, this.img)
+        postPortfolio() {
+            FirebaseService.postPortfolio(this.title, this.content, this.img)
             },
 
         upload(){
             var xmlHttpRequest = new XMLHttpRequest();
-            console.log(1)
             xmlHttpRequest.open('POST', 'https://api.imgur.com/3/image/', true)
-            console.log(2)
-
             xmlHttpRequest.setRequestHeader("Authorization", "Client-ID 38e11911aeaa6ab")
-            console.log(3)
-
-            xmlHttpRequest.onreadystatechange = () => {
-            console.log(4)
+            xmlHttpRequest.onreadystatechange  = () =>  {
                 if (xmlHttpRequest.readyState == 4) {
                     if (xmlHttpRequest.status == 200) {
                         var result = JSON.parse(xmlHttpRequest.responseText)
                         this.img = result.data.link    
-                        this.postPost()
+                        this.postPortfolio()
                         alert("업로드 성공")
-
                     }
                     else {
                         alert("업로드 실패")
                     }
                 }
             }
-            console.log(5)
-            xmlHttpRequest.send(this.imageFile)
-   
-
+            xmlHttpRequest.send(this.imageFile)      
         }, 
 
         pickFile(){
